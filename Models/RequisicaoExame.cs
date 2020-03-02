@@ -11,7 +11,7 @@ namespace Clinica.Models
         [Key]
         public int idRequisicaoExame { get; set; }
         public DateTime dataRequisicao { get; set; }
-        public DateTime dataAgendamentoRequisicaoExame { get; set; }
+        public DateTime dataAgendamento { get; set; }
         public int situacao { get; set; }
         public Exame idExame { get; set; }
         public List<Exame> list_exame { get; set; }

@@ -10,8 +10,8 @@ namespace Clinica.Models
     {
         [Key]
         public int idPreescricaoMedicamento { get; set; }
-        public string medicamentoPreescricaoMedicamento { get; set; }
-        public string formaUsoPreescricaoMedicamento  { get; set; }
+        public string medicamento{ get; set; }
+        public string formaUso  { get; set; }
         public Consulta idConsulta { get; }
         public List<Consulta> list_consulta { get; set; }
     }

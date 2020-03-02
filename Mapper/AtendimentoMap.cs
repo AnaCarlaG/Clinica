@@ -12,6 +12,13 @@ namespace Clinica.Mapper
     {
         public AtendimentoMap(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Atendimento>().Property(a => a.idAtendimento).IsRequired();
+            modelBuilder.Entity<Atendimento>().Property(a => a.horaInicio).IsRequired();
+            modelBuilder.Entity<Atendimento>().Property(a => a.horaFim).IsRequired();
+            modelBuilder.Entity<Atendimento>().Property(a => a.horaInicio).IsRequired();
+            modelBuilder.Entity<Atendimento>().Property(a => a.atendeDia).IsRequired();
+            modelBuilder.Entity<Atendimento>().Property(a => a.atendePlano).IsRequired();
+
             modelBuilder.Entity<Atendimento>().HasKey(a => a.idAtendimento);
             modelBuilder.Entity<Atendimento>().HasMany(m => m.list_medico)
                 .WithOne(a => a.idAtendimento).HasForeignKey(m => m.idMedico);

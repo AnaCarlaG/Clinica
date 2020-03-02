@@ -11,6 +11,10 @@ namespace Clinica.Mapper
     {
         public PlanoMap(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Plano>().Property(p => p.idPlano).IsRequired();
+            modelBuilder.Entity<Plano>().Property(p => p.nomePlano).IsRequired();
+            modelBuilder.Entity<Plano>().Property(p => p.siglaPlano).IsRequired();
+
             modelBuilder.Entity<Plano>().HasKey(p => p.idPlano);
             modelBuilder.Entity<Plano>().HasMany(pla => pla.list_paciente)
                 .WithOne(pac => pac.idPlano)

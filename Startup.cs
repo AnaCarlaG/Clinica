@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Clinica.Controllers.Context;
+using Clinica.Models.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,8 +26,9 @@ namespace Clinica
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-           // services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
-           services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase("Database"));
+            services.AddScoped<ClinicaContext>();
+            services.AddDbContext<ClinicaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ClinicaConnection")));
+          // services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase("Database"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -11,10 +11,13 @@ namespace Clinica.Mapper
     {
         public ConsultaPlanoMap(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ConsultaPlano>().Property(c => c.idConsultaPlano).IsRequired();
+            modelBuilder.Entity<ConsultaPlano>().Property(c => c.plano).IsRequired();
+
             modelBuilder.Entity<ConsultaPlano>().HasKey(c=>c.idConsultaPlano);
             modelBuilder.Entity<ConsultaPlano>().HasOne(c => c.idConsulta)
-                .WithOne(c=>c.idConsultaPlano)
-                .HasForeignKey<Consulta>(c=>c.idConsultaPlano);
+                .WithOne(c => c.idConsultaPlano)
+                .HasForeignKey<Consulta>(c => c.idConsultaPlano);
         }
     }
 }

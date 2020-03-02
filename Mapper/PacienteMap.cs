@@ -12,6 +12,11 @@ namespace Clinica.Mapper
     {
         public PacienteMap(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Paciente>().Property(p => p.idPaciente).IsRequired();
+            modelBuilder.Entity<Paciente>().Property(p => p.nomePaciente).IsRequired();
+            modelBuilder.Entity<Paciente>().Property(p => p.sexo).IsRequired();
+            modelBuilder.Entity<Paciente>().Property(p => p.dataNascimento).IsRequired();
+
             modelBuilder.Entity<Paciente>().HasKey(p => p.idPaciente);
             modelBuilder.Entity<Paciente>().HasOne(p => p.idEndereco)
                 .WithOne(e => e.idPaciente)

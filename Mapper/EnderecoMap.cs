@@ -12,6 +12,12 @@ namespace Clinica.Mapper
     {
         public EnderecoMap(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Endereco>().Property(e => e.cidade).IsRequired();
+            modelBuilder.Entity<Endereco>().Property(e => e.logradouro).IsRequired();
+            modelBuilder.Entity<Endereco>().Property(e => e.CEP).IsRequired();
+            modelBuilder.Entity<Endereco>().Property(e => e.estado).IsRequired();
+            modelBuilder.Entity<Endereco>().Property(e => e.idEndereco).IsRequired();
+
             modelBuilder.Entity<Endereco>().HasKey(e => e.idEndereco);
             modelBuilder.Entity<Endereco>().HasOne(e => e.idMedico)
                 .WithOne(m => m.idEndereco)
@@ -22,6 +28,7 @@ namespace Clinica.Mapper
             modelBuilder.Entity<Endereco>()
                 .HasOne(e => e.idPaciente)
                 .WithOne(p => p.idEndereco).HasForeignKey<Endereco>(e => e.idPaciente);
+
         }
     }
 }

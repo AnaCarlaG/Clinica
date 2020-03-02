@@ -1,19 +1,25 @@
 ﻿using Clinica.Mapper;
 using Clinica.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Sistema.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Clinica.Controllers.Context
+namespace Clinica.Models.Context
 {
-    public class DataContext : DbContext
+   // [DbContext(typeof(ClinicaContext))]
+    public class ClinicaContext : DbContext
     {
-        public DataContext(DbContextOptions<DataContext> options):base(options)
+        public ClinicaContext(DbContextOptions<ClinicaContext> options):base(options)
         {
 
+        }
+        public ClinicaContext()
+        {
+                
         }
         public DbSet<Atendimento> Atendimento { get; set; }
         public DbSet<Consulta> Consulta { get; set; }
@@ -23,7 +29,7 @@ namespace Clinica.Controllers.Context
         public DbSet<Especialidade> Especialidade { get; set; }
         public DbSet<Estado> Estado { get; set; }
         public DbSet<Exame> Exame { get; set; }
-        public DbSet<Paciente> Paciente { get; set; }
+        public DbSet<Paciente> Paciente { get; set; }   
         public DbSet<Plano> Plano { get; set; }
         public DbSet<PreescricaoMedicamento> PreescricaoMedicamentos { get; set; }
         public DbSet<RequisicaoExame> RequisicaoExame { get; set; }

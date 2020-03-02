@@ -11,6 +11,9 @@ namespace Clinica.Mapper
     {
         public EstadoMap(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Estado>().Property(e => e.siglaEstado).IsRequired();
+            modelBuilder.Entity<Estado>().Property(e => e.nomeEstado).IsRequired();
+
             modelBuilder.Entity<Estado>().HasKey(e => e.siglaEstado);
             modelBuilder.Entity<Estado>()
                 .HasMany(est => est.list_endereco)

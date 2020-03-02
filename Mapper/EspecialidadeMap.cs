@@ -11,6 +11,9 @@ namespace Clinica.Mapper
     {
         public EspecialidadeMap(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Especialidade>().Property(e => e.idEspecialidade).IsRequired();
+            modelBuilder.Entity<Especialidade>().Property(e => e.descricaoEspecialidade).IsRequired();
+
             modelBuilder.Entity<Especialidade>().HasKey(e => e.idEspecialidade);
             modelBuilder.Entity<Especialidade>().HasOne(e => e.idMedico)
                 .WithMany(m => m.list_especialidade)

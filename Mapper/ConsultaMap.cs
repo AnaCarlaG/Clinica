@@ -11,6 +11,9 @@ namespace Clinica.Mapper
     {
         public ConsultaMap(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Consulta>().Property(c => c.idConsulta).IsRequired();
+            modelBuilder.Entity<Consulta>().Property(c => c.dataConsulta).IsRequired();
+
             modelBuilder.Entity<Consulta>().HasKey(c => c.idConsulta);
             modelBuilder.Entity<Consulta>().HasOne(c => c.idConsultaPlano)
                 .WithOne(con=>con.idConsulta)
@@ -24,7 +27,6 @@ namespace Clinica.Mapper
             modelBuilder.Entity<Consulta>().HasOne(c => c.idAtendimento)
                 .WithOne(a=>a.idConsulta)
                 .HasForeignKey<Consulta>(c=>c.idAtendimento);
-
         }
     }
 }
