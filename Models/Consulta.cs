@@ -13,14 +13,13 @@ namespace Clinica.Models
         [Key]
         public long idConsulta{get;set;}
         public DateTime dataConsulta { get; set; }
-        public ConsultaParticular consultaParticular { get; set; }
-        public ConsultaPlano consultaPlano { get; set; }
+        public ConsultaParticular idConsultaParticular { get; set; }
+        public ConsultaPlano idConsultaPlano { get; set; }
         public List<ConsultaPlano> list_consultaPlanos { get; set; }
         public List<ConsultaParticular> list_consultaParticular { get; set; }
-        public PreescricaoMedicamento preescricaoMedicamento { get; set; }
+        public PreescricaoMedicamento idPreescricaoMedicamento { get; set; }
         public List<PreescricaoMedicamento> list_preescricaomedica { get; set; }
         public Atendimento idAtendimento { get; set; }
-        public Atendimento atendimento { get; set; }
     }
 
 }

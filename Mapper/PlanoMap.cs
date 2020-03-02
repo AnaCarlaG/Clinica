@@ -12,6 +12,15 @@ namespace Clinica.Mapper
         public PlanoMap(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Plano>().HasKey(p => p.idPlano);
+            modelBuilder.Entity<Plano>().HasMany(pla => pla.list_paciente)
+                .WithOne(pac => pac.idPlano)
+                .HasForeignKey(pac => pac.idPlano);
+            modelBuilder.Entity<Plano>().HasMany(p => p.list_exame)
+                .WithOne(e => e.idPlano)
+                .HasForeignKey(e => e.idPlano);
+            modelBuilder.Entity<Plano>().HasMany(p => p.list_medico)
+                .WithOne(m => m.idPlano)
+                .HasForeignKey(m => m.idPlano);
         }
     }
 }

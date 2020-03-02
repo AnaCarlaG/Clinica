@@ -10,7 +10,8 @@ namespace Clinica.Models
     {
         [Key]
         public int idConsultaPlano { get; }
-        public Plano planoConsultaPlano { get; set; }
+        public Plano idPlano { get; set; }
         public List<Plano> list_planos { get; set; }
+        public Consulta idConsulta { get; }
     }
 }

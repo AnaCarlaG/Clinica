@@ -14,7 +14,7 @@ namespace Clinica.Models
         public string siglaPlano { get; set; }
         public Paciente idPaciente { get; set; }
         public List<Paciente> list_paciente { get; set; }
-        public Exame exame { get; set; }
+        public Exame idExame { get; set; }
         public List<Exame> list_exame { get; set; }
         public Medico idMedico { get; set; }
         public List<Medico> list_medico { get; set; }

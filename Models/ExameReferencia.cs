@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Clinica.Models
 {
-    public class ConsultaParticular
+    public class ExameReferencia
     {
         [Key]
-        public int idConsultaParticular { get; set; }
+        public int idExameReferencia { get; }
+        public int sexo { get; set; }
+        public int idade { get; set; }
         public float valor { get; set; }
-        public string formaPagamento { get; set; }
-        public Consulta idConsulta { get; }
+        public Exame idExame { get; }
     }
 }
