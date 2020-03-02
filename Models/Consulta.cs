@@ -19,7 +19,7 @@ namespace Clinica.Models
         public List<ConsultaParticular> list_consultaParticular { get; set; }
         public PreescricaoMedicamento preescricaoMedicamento { get; set; }
         public List<PreescricaoMedicamento> list_preescricaomedica { get; set; }
-        public int atendimentoId { get; set; }
+        public Atendimento idAtendimento { get; set; }
         public Atendimento atendimento { get; set; }
     }
 

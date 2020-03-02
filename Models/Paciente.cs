@@ -14,9 +14,10 @@ namespace Clinica.Models
         public string nomePaciente { get; set; }
         public int sexo { get; set; }
         public DateTime dataNascimento { get; set; }
-        public Estado estado { get; set; }
         public Consulta consulta { get; set; }
+        public Plano idPlano { get; }
+        public List<Plano> list_plano { get; set; }
         public List<Consulta> list_consulta { get; set; }
-        public Endereco endereco { get; set; }
+        public Endereco idEndereco { get; set; }
     }
 }

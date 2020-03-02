@@ -10,12 +10,16 @@ namespace Clinica.Models
     public class Medico
     {
         [Key]
-        public int idMedico{get;}
+        public int idMedico { get; }
         public string Nome { get; set; }
         public string CRM { get; set; }
         public string tel { get; set; }
-        public Atendimento atendimento { get; set; }
-        public int atendimentoId { get; set; }
-        public List<Atendimento> list_atendimento { get; set; }
+        public Especialidade idEspecialidade { get; set; }
+        public Endereco idEndereco { get; set; }
+        public Plano idPlano { get; }
+        public Atendimento idAtendimento { get; }
+        public List<Plano> list_plano { get; set; } 
+        public List<Especialidade> list_especialidade { get; set; }
+
     }
 }

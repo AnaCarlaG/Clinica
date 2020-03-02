@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Clinica.Models;
+using Microsoft.EntityFrameworkCore;
 using Sistema.Models;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,14 @@ namespace Clinica.Mapper
         public AtendimentoMap(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Atendimento>().HasKey(a => a.idAtendimento);
-            modelBuilder.Entity<Atendimento>().HasOne(a => a.consultaId)
-                .WithOne(c => c.atendimento);
             modelBuilder.Entity<Atendimento>().HasMany(m => m.list_medico)
-                .WithOne(a => a.atendimento).HasForeignKey(m=>m.atendimentoId);
+                .WithOne(a => a.idAtendimento).HasForeignKey(m => m.idMedico);
+            modelBuilder.Entity<Atendimento>().HasOne(a => a.idConsulta)
+                .WithOne(c => c.idAtendimento)
+                .HasForeignKey<Consulta>(c => c.idAtendimento);
+            modelBuilder.Entity<Atendimento>().HasOne(a => a.idDiaSemana)
+                .WithOne(d => d.idAtendimento)
+                .HasForeignKey<DiaSemana>(d => d.idAtendimento);
         }
     }
 }

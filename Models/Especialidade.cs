@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clinica.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace Sistema.Models
         [Key]
         public int idEspecialidade { get; }
         public string descricaoEspecialidade { get; set; }
+        public Medico idMedico { get; }
     }
 }

@@ -12,15 +12,16 @@ namespace Sistema.Models
     {
         [Key]
         public int idAtendimento { get; }
-        public DateTime horario { get; set; }
+        public DateTime horaInicio { get; set; }
         public DateTime horaFim { get; set; }
         public bool atendePlano { get; set; }
         public bool atendeDia { get; set; }
-        public Consulta consultaId { get; }
-        public Especialidade especialidade { get; set; }
-        public List<Especialidade> list_especialidade { get; set; }
-        public Medico medico { get; set; }
+
+        public Medico idMedico { get; }
+        public Consulta idConsulta { get; }
+        public DiaSemana idDiaSemana { get; }
         public List<Medico> list_medico { get; set; }
-        public DiaSemana diaSemanaId { get; set; }
+
+
     }
 }

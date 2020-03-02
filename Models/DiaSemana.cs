@@ -14,6 +14,6 @@ namespace Sistema.Models
 
         public Atendimento atendimento { get; set; }
         public List<Atendimento> list_atendimento { get; set; }
-        public int idAtendimento { get; set; }
+        public Atendimento idAtendimento { get; set; }
     }
 }
