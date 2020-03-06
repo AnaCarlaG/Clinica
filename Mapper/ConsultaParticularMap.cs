@@ -16,9 +16,9 @@ namespace Clinica.Mapper
             modelBuilder.Entity<ConsultaParticular>().Property(c => c.formaPagamento).IsRequired();
 
             modelBuilder.Entity<ConsultaParticular>().HasKey(c => c.idConsultaParticular);
-            modelBuilder.Entity<ConsultaParticular>().HasOne(c => c.idConsulta)
-                .WithOne(c => c.idConsultaParticular)
-                .HasForeignKey<Consulta>(c=>c.idConsultaParticular);
+            modelBuilder.Entity<ConsultaParticular>().HasOne(c => c.Consulta)
+                .WithOne(b => b.ConsultaParticular)
+                .HasForeignKey<Consulta>(e => e.idConsulta);
         }
     }
 }

@@ -6,22 +6,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Sistema.Models
+namespace Clinica.Models
 {
     public class Atendimento
     {
         [Key]
         public int idAtendimento { get; }
+        public int idMedico { get; }
+        public int idConsulta { get; }
+        public int idDiaSemana { get; }
         public DateTime horaInicio { get; set; }
         public DateTime horaFim { get; set; }
         public bool atendePlano { get; set; }
         public bool atendeDia { get; set; }
 
-        public Medico idMedico { get; }
-        public Consulta idConsulta { get; }
-        public DiaSemana idDiaSemana { get; }
-        public List<Medico> list_medico { get; set; }
-
-
+        public Medico Medico { get; }
+        public Consulta Consulta { get; }
+        public DiaSemana DiaSemana { get; }
     }
 }

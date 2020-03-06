@@ -16,9 +16,9 @@ namespace Clinica.Mapper
             modelBuilder.Entity<PreescricaoMedicamento>().Property(p => p.formaUso).IsRequired();
 
             modelBuilder.Entity<PreescricaoMedicamento>().HasKey(p=>p.idPreescricaoMedicamento);
-            modelBuilder.Entity<PreescricaoMedicamento>().HasOne(p => p.idConsulta)
-                .WithOne(c => c.idPreescricaoMedicamento)
-                .HasForeignKey<Consulta>(c=>c.idPreescricaoMedicamento);
+            modelBuilder.Entity<PreescricaoMedicamento>().HasOne(p => p.Consulta)
+                .WithMany(p => p.PreescricaoMedicamentos)
+                .HasForeignKey(p => p.idConsulta);
         }
     }
 }

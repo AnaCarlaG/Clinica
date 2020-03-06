@@ -5,13 +5,15 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Sistema.Models
+namespace Clinica.Models
 {
     public class Especialidade
     {
-        [Key]
         public int idEspecialidade { get; }
         public string descricaoEspecialidade { get; set; }
-        public Medico idMedico { get; }
+
+        //public int idMedico { get; }
+
+        //public Medico Medico { get; }
     }
 }

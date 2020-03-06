@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Sistema.Models;
+﻿using Clinica.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +14,7 @@ namespace Clinica.Mapper
             modelBuilder.Entity<Especialidade>().Property(e => e.idEspecialidade).IsRequired();
             modelBuilder.Entity<Especialidade>().Property(e => e.descricaoEspecialidade).IsRequired();
 
-            modelBuilder.Entity<Especialidade>().HasKey(e => e.idEspecialidade);
-            modelBuilder.Entity<Especialidade>().HasOne(e => e.idMedico)
-                .WithMany(m => m.list_especialidade)
-                .HasForeignKey(e => e.idMedico);
+            modelBuilder.Entity<Especialidade>().HasKey(e => e.idEspecialidade);            
         }
     }
 }

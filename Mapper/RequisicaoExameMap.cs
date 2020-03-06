@@ -17,9 +17,6 @@ namespace Clinica.Mapper
             modelBuilder.Entity<RequisicaoExame>().Property(r => r.dataRequisicao).IsRequired();
 
             modelBuilder.Entity<RequisicaoExame>().HasKey(r=>r.idRequisicaoExame);
-            modelBuilder.Entity<RequisicaoExame>().HasMany(r => r.list_exame)
-                .WithOne(e => e.idRequisicaoExame)
-                .HasForeignKey(r => r.idExame);
         }
     }
 }

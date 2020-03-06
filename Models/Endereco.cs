@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Sistema.Models
+namespace Clinica.Models
 {
     public class Endereco
     {
@@ -14,9 +14,7 @@ namespace Sistema.Models
         public string cidade { get; set; }
         public string logradouro { get; set; }
         public string CEP { get; set; }
-        public Estado estado { get; set; }
-        public Estado siglaEstado { get; set; }
-        public Medico idMedico { get; }
-        public Paciente idPaciente { get; }
+        public Estado Estado { get; set; }
+        public string siglaEstado { get; set; }
     }
 }

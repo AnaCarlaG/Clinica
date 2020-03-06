@@ -11,21 +11,12 @@ namespace Clinica.Mapper
     {
         public ExameMap(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Exame>().HasKey(e => e.idExame);
+
             modelBuilder.Entity<Exame>().Property(e => e.idExame).IsRequired();
             modelBuilder.Entity<Exame>().Property(e => e.nomeExame).IsRequired();
             modelBuilder.Entity<Exame>().Property(e => e.descricaoExame).IsRequired();
             modelBuilder.Entity<Exame>().Property(e => e.valorExame).IsRequired();
-
-            modelBuilder.Entity<Exame>().HasKey(ex => ex.idExame);
-            modelBuilder.Entity<Exame>().HasMany(ex => ex.list_plano)
-                .WithOne(p => p.idExame)
-                .HasForeignKey(ex => ex.idPlano);
-            modelBuilder.Entity<Exame>().HasOne(ex => ex.idExameReferencia)
-                .WithOne(e => e.idExame)
-                .HasForeignKey<ExameReferencia>(e=>e.idExame);
-            modelBuilder.Entity<Exame>().HasMany(ex => ex.list_requisicaoExame)
-                .WithOne(e => e.idExame)
-                .HasForeignKey(ex=>ex.idExame);
         }
     }
 }

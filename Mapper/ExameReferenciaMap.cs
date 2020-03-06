@@ -17,8 +17,10 @@ namespace Clinica.Mapper
             modelBuilder.Entity<ExameReferencia>().Property(e => e.valor).IsRequired();
 
             modelBuilder.Entity<ExameReferencia>().HasKey(e => e.idExameReferencia);
-            modelBuilder.Entity<ExameReferencia>().HasOne(e => e.idExame)
-                .WithOne(ex => ex.idExameReferencia);
+
+            modelBuilder.Entity<ExameReferencia>().HasOne(p => p.Exame)
+                .WithMany(p => p.ExameReferencias)
+                .HasForeignKey(p => p.idExame);
         }
     }
 }

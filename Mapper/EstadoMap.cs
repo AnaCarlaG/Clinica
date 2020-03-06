@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Sistema.Models;
+﻿using Clinica.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,8 +16,10 @@ namespace Clinica.Mapper
 
             modelBuilder.Entity<Estado>().HasKey(e => e.siglaEstado);
             modelBuilder.Entity<Estado>()
-                .HasMany(est => est.list_endereco)
-                .WithOne(end => end.siglaEstado).HasForeignKey(end => end.idEndereco);
+                .HasMany(est => est.Enderecos)
+                .WithOne().HasForeignKey(end => end.siglaEstado);
+
+
         }
     }
 }

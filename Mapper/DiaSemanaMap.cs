@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Sistema.Models;
+﻿using Clinica.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +14,6 @@ namespace Clinica.Mapper
             modelBuilder.Entity<DiaSemana>().Property(d => d.idDiaSemana).IsRequired();
             modelBuilder.Entity<DiaSemana>().Property(d => d.nomeDiaSemana).IsRequired();
             modelBuilder.Entity<DiaSemana>().HasKey(d => d.idDiaSemana);
-            modelBuilder.Entity<DiaSemana>().HasOne(d => d.idAtendimento)
-                .WithOne(a => a.idDiaSemana)
-                .HasForeignKey<DiaSemana>(a => a.idDiaSemana);
         }
     }
 }

@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 namespace Clinica.Models
 {
     public class ConsultaParticular
-    {
-        [Key]
+    {        
         public int idConsultaParticular { get; set; }
+
+        public int idConsulta { get; set; }
         public float valor { get; set; }
         public string formaPagamento { get; set; }
-        public Consulta idConsulta { get; }
+        public Consulta Consulta { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 using System;
 
-namespace Clinica.Models
+namespace Clinica2._0.Models
 {
     public class ErrorViewModel
     {

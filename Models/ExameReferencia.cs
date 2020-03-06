@@ -10,9 +10,10 @@ namespace Clinica.Models
     {
         [Key]
         public int idExameReferencia { get; }
+        public int idExame { get; }
         public int sexo { get; set; }
         public int idade { get; set; }
         public float valor { get; set; }
-        public Exame idExame { get; }
+        public Exame Exame { get; set; }
     }
 }

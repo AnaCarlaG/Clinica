@@ -1,5 +1,4 @@
-﻿using Sistema.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,17 +8,11 @@ namespace Clinica.Models
 {
     public class Medico
     {
-        [Key]
         public int idMedico { get; }
-        public string Nome { get; set; }
+        public string nome { get; set; }
         public string CRM { get; set; }
-        public string tel { get; set; }
-        public Especialidade idEspecialidade { get; set; }
-        public Endereco idEndereco { get; set; }
-        public Plano idPlano { get; }
-        public Atendimento idAtendimento { get; }
-        public List<Plano> list_plano { get; set; } 
-        public List<Especialidade> list_especialidade { get; set; }
-
+        public string tel { get; set; }        
+        public Atendimento Atendimento { get; set; }
+        public Plano Plano { get; set; }
     }
 }

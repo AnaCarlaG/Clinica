@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Clinica
+namespace Clinica2._0
 {
     public class Startup
     {
@@ -28,7 +28,6 @@ namespace Clinica
             services.AddControllersWithViews();
             services.AddScoped<ClinicaContext>();
             services.AddDbContext<ClinicaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ClinicaConnection")));
-          // services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase("Database"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

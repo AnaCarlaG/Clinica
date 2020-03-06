@@ -1,6 +1,5 @@
 ﻿using Clinica.Models;
 using Microsoft.EntityFrameworkCore;
-using Sistema.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +17,16 @@ namespace Clinica.Mapper
             modelBuilder.Entity<Paciente>().Property(p => p.dataNascimento).IsRequired();
 
             modelBuilder.Entity<Paciente>().HasKey(p => p.idPaciente);
-            modelBuilder.Entity<Paciente>().HasOne(p => p.idEndereco)
-                .WithOne(e => e.idPaciente)
-                .HasForeignKey<Endereco>(e => e.idPaciente);
-            modelBuilder.Entity<Paciente>().HasMany(pac => pac.list_plano)
-                .WithOne(pla => pla.idPaciente)
-                .HasForeignKey(pla =>pla.idPaciente);
+
+            modelBuilder.Entity<Paciente>().HasOne(m => m.Endereco)
+                .WithOne().HasForeignKey<Paciente>(m => m.idEndereco);
+
+            modelBuilder.Entity<Paciente>().HasOne(m => m.Plano)
+                .WithOne().HasForeignKey<Paciente>(m => m.idPlano);
+
+            modelBuilder.Entity<Paciente>().HasMany(m => m.Consultas)
+                .WithOne(c => c.Paciente).HasForeignKey(m => m.idConsulta);
+
         }
     }
 }
